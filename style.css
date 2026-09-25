@@ -1,0 +1,219 @@
+:root {
+  --ungu-gelap: #250b42;
+  --ungu-tombol: #58139a;
+  --ungu-neon: #b84dff;
+  --putih: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #10051d;
+  color: var(--putih);
+}
+
+/* Video latar belakang */
+.background-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Lapisan gelap supaya tulisan terlihat jelas */
+.background-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 4, 28, 0.78),
+    rgba(32, 5, 56, 0.88)
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Konten utama */
+.container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 480px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 40px 22px 28px;
+}
+
+/* Profil */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.profile img {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 18px;
+  object-fit: cover;
+  border: 4px solid var(--ungu-neon);
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(184, 77, 255, 0.75);
+}
+
+.profile h1 {
+  color: #f2d9ff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(38px, 10vw, 54px);
+  letter-spacing: 4px;
+  line-height: 1;
+  text-shadow: 0 0 8px #9c35e8, 0 0 24px #6c16af;
+}
+
+.profile p {
+  margin-top: 9px;
+  color: #e5c9f4;
+  font-size: 14px;
+}
+
+/* Tombol media sosial tersusun ke bawah */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.links a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 12px 44px;
+  border: 2px solid var(--ungu-neon);
+  border-radius: 15px;
+  background: linear-gradient(135deg, var(--ungu-gelap), var(--ungu-tombol));
+  box-shadow:
+    0 4px 0 #170626,
+    0 0 12px rgba(184, 77, 255, 0.35);
+  color: var(--putih);
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* Logo di samping nama */
+.link-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.link-content i {
+  width: 24px;
+  color: #e6b2ff;
+  font-size: 23px;
+  text-align: center;
+}
+
+/* Panah di sisi kanan tombol */
+.link-arrow {
+  position: absolute;
+  right: 19px;
+  color: #e6b2ff;
+  font-size: 22px;
+}
+
+.links a:hover,
+.links a:focus-visible {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #6819ab, #8427cc);
+  box-shadow:
+    0 7px 0 #170626,
+    0 0 22px rgba(184, 77, 255, 0.85);
+}
+
+.links a:active {
+  transform: translateY(2px);
+}
+
+/* Tombol suara: ditampilkan oleh JavaScript jika diperlukan */
+.sound-button {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: calc(100% - 20px);
+  min-height: 52px;
+  margin: 22px 10px 0;
+  padding: 10px 16px;
+  border: 2px solid #e6b2ff;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #6819ab, #8427cc);
+  box-shadow: 0 0 18px rgba(184, 77, 255, 0.55);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sound-button:hover,
+.sound-button:focus-visible {
+  background: linear-gradient(135deg, #8427cc, #a83cf0);
+}
+
+.sound-button[hidden] {
+  display: none;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  padding-top: 32px;
+  color: #dcb5f4;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Penyesuaian untuk layar HP kecil */
+@media (max-width: 380px) {
+  .container {
+    padding-inline: 16px;
+  }
+
+  .links a {
+    min-height: 56px;
+    font-size: 16px;
+  }
+
+  .link-content {
+    gap: 8px;
+  }
+
+  .link-content i {
+    font-size: 20px;
+  }
+
+  .sound-button {
+    font-size: 14px;
+  }
+}
